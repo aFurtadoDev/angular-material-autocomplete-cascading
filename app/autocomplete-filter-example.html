@@ -1,0 +1,68 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input
+      type="text"
+      placeholder="Pais"
+      aria-label="Number"
+      matInput
+      [formControl]="country"
+      [matAutocomplete]="countryAuto"
+    />
+    <mat-autocomplete
+      #countryAuto="matAutocomplete"
+      [displayWith]="displayCountryFn"
+    >
+      <mat-option
+        *ngFor="let option of filteredCountryOptions | async"
+        [value]="option"
+      >
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input
+      type="text"
+      placeholder="Estado"
+      aria-label="Number"
+      matInput
+      [formControl]="state"
+      [matAutocomplete]="stateAuto"
+    />
+    <mat-autocomplete
+      #stateAuto="matAutocomplete"
+      [displayWith]="displayStateFn"
+    >
+      <mat-option
+        *ngFor="let option of filteredStateOptions | async"
+        [value]="option"
+      >
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input
+      type="text"
+      placeholder="Cidade"
+      aria-label="Number"
+      matInput
+      [formControl]="city"
+      [matAutocomplete]="cityAuto"
+    />
+    <mat-autocomplete #cityAuto="matAutocomplete" [displayWith]="displayCityFn">
+      <mat-option
+        *ngFor="let option of filteredCityOptions | async"
+        [value]="option"
+      >
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
